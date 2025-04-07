@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Inter-Collegiate Function Registration</title>
+    <script>
+        function validateForm() {
+            var firstName = document.registrationForm.fname.value;
+            var lastName = document.registrationForm.lname.value;
+            var email = document.registrationForm.email.value;
+            var college = document.registrationForm.college.value;
+            var event = document.registrationForm.event.value;
+
+            if (firstName == "") {
+                alert("First Name must be filled out.");
+                return false;
+            }
+            if (lastName == "") {
+                alert("Last Name must be filled out.");
+                return false;
+            }
+            if (email == "") {
+                alert("Email must be filled out.");
+                return false;
+            }
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            if (college == "") {
+                alert("College Name must be filled out.");
+                return false;
+            }
+            if (event == "") {
+                alert("Please select an event.");
+                return false;
+            }
+
+            alert("Registration successful!");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Inter-Collegiate Function Registration</h2>
+
+    <form name="registrationForm" onsubmit="return validateForm()">
+        <input type="text" name="fname" placeholder="First Name"><br><br>
+        <input type="text" name="lname" placeholder="Last Name"><br><br>
+        <input type="email" name="email" placeholder="Email"><br><br>
+        <input type="text" name="college" placeholder="College Name"><br><br>
+        <select name="event">
+            <option value="">Select Event</option>
+            <option value="Coding Contest">Coding Contest</option>
+            <option value="Hackathon">Hackathon</option>
+            <option value="Paper Presentation">Paper Presentation</option>
+        </select><br><br>
+        <button type="submit">Register</button>
+    </form>
+
+</body>
+
+</html>
+
